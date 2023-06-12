@@ -49,16 +49,24 @@ const typeController = (e) => {
   }
 
   // check if given question text is equal to user typed text
-  if (questionText === userText) {
+  if (questionText.length === userText.length) {
     gameOver();
   }
 };
 
-const validate = (key) => {
+/* const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
   }
   return false;
+}; */
+const validate = (key) => {
+  if (key === questionText[userText.length - 1]) {
+    return true;
+  } else {
+    errorCount++; // Increment errorCount if there is a mismatch
+    return false;
+  }
 };
 
 // FINISHED TYPING
@@ -80,7 +88,7 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${Math.round(timeTaken)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;

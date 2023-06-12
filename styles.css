@@ -182,11 +182,24 @@ button {
   position: fixed;
   top: 0;
 }
-
+/* mobile view  */
 @media only screen and (max-width: 700px) {
   .box-container {
     padding: 0 20px;
     width: 100%;
+  }
+  .card {
+    flex-direction: column;
+  }
+}
+/* desktop view*/
+@media only screen and (min-width: 701px) {
+  #histories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px 10px;
   }
   .card {
     flex-direction: column;
